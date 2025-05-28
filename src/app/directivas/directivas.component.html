@@ -1,0 +1,134 @@
+<div style="padding-left: 35%; padding-bottom: 20%;">
+
+<p>directivas works!</p>
+
+
+<h2>IF</h2>
+
+
+
+<br><br>
+<h2>Manejo de materiales</h2>
+<table>
+  <tr>
+    <td>Edad</td>
+    <td><input type="text" name="" id="" [(ngModel)]="edad"></td>
+  </tr>
+  <tr>
+    <td>Puesto: </td>
+    <td> <select name="" id="" [(ngModel)]="puesto">
+      <option value="0">Seleccione uno</option>
+      <option value="Gerente">Gerente</option>
+      <option value="cajero">Cajero</option>
+      </select>
+    </td>
+    </tr>
+    <tr>
+      <td>Sueldo:</td>
+      <td><input type="text" name="" id="" [(ngModel)]="sueldo"></td>
+    </tr>
+    <tr>
+      <td>Genero</td>
+      <td>Hombre: <input type="radio" name="genero" value="Hombre" id="" [(ngModel)]="genero"></td>
+      <td>Mujer: <input type="radio" name="genero" value="Mujer" id="" [(ngModel)]="genero"></td>
+    </tr>
+</table>
+<!-- Nombre: {{nombre}} <br> -->
+Edad escrita: {{edad}} <br>
+Puesto: seleccionado {{puesto}} <br>
+Sueldo: deseado {{sueldo}} <br>
+Genero: {{genero}} <br>
+
+<br><br>
+valor: <input type="number" [(ngModel)]="valor"><br>
+{{ valor }}
+
+@if (valor ==0){
+  <input type="button" value="Salir">
+}
+<br>
+
+@if(puesto =='Gerente' && edad == "21"){
+  <span>Bienvenido gerente </span><br>
+  Fecha: <input type="date" name="" id=""><br>
+  Hora: <input type="time" name="" id=""><br>
+  Email: <input type="email" name="" id=""><br>
+  Comentarios: <textarea name="" id="" cols="30" rows="10"></textarea>
+}
+@else{
+  <span>No eres gerente</span>
+}
+</div>
+
+
+<hr>
+<h2>FOR</h2>
+
+
+<ul>
+@for(frut of frutas; track frut){
+
+
+
+  <li>{{ frut }}</li>
+} @empty{
+  <li>Coleccion vacia</li>
+}
+</ul>
+
+<table border="3">
+<tr style="background: black; color: aliceblue;">
+  <th>Nombre</th>
+  <th>Tipo</th>
+  <th>Raza</th>
+  <th>Genero</th>
+  <th>Precio</th>
+  <th>Talla</th>
+  </tr>
+
+@for(pro of productos; track pro.nombre){
+  <tr>
+    <td>{{pro.nombre}}</td>
+    <td>{{pro.tipo}}</td>
+    <td>{{pro.raza}}</td>
+    <td>{{pro.genero}}</td>
+    <td align="rigth">${{pro.precio}}</td>
+    <td align="center">{{pro.talla}}</td>
+  </tr>
+
+}@empty{
+    <span>Coleccion vacia</span>
+}
+</table>
+
+<br>
+<hr>
+
+Cuatrimestre que estas cuersando: <input type="text" [(ngModel)]="cuatri" name="" id="">
+
+@switch(cuatri){
+  @case("1"){
+    <span>Estas en panales</span>
+  }
+  @case("2"){
+    <span>Empiezas a caminar</span>
+  }
+  @case("3"){
+    <span>Empiezas a correr</span>
+  }
+  @case("4"){
+    <span>ya corres y saltas</span>
+  }
+  @case("5"){
+    <span>Eres todo un programador</span>
+  }
+  @case("6"){
+    <span>Eres un master</span>
+  }
+  @case("7"){
+    <span>Casi chatGPT</span>
+  }
+  @default{
+    <span>opcion incorrecta o mencione una</span>
+  }
+}
